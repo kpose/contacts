@@ -7,6 +7,7 @@ import DetailListItem from '../components/DetailListItem';
 import { fetchRandomContact } from '../utils/api';
 
 import colors from '../utils/colors';
+import { blue } from 'ansi-colors';
 
 export default class Profile extends React.Component{
     state = {
@@ -26,7 +27,7 @@ export default class Profile extends React.Component{
         } = this.state.contact;
 
         return(
-            <View style = {StyleSheet.container}>
+            <View style = {styles.container}>
                 <View style = {styles.avatarSection}>
                     <ContactThumbnail avatar = {avatar} name={name} phone={phone} /> 
                 </View>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: colors.blue,
+        backgroundColor: 'blue',
     },
 
     detailsSection: {

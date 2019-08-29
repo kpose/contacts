@@ -1,14 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-/*import Contacts from './screens/Contacts';*/
-import Profile from './screens/Profile';
+import Container from './routes'
 
-
-export default function App() {
-  return (
-    <Profile />
-  )
+export default class App extends React.Component {
+  render() {
+    return (
+      <Container/>
+    );
+  }
 }
-
 
