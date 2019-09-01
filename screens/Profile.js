@@ -10,21 +10,22 @@ import colors from '../utils/colors';
 import { blue } from 'ansi-colors';
 
 export default class Profile extends React.Component{
-    state = {
-        contact: {},
+    static navigationOptions = ({ navigation: {state: { params }}}) => {
+        const {contact: { name } } = params;
+        return {
+            title: name.split(' ')[0],
+            headerTintColor: 'white',
+            headerStyle : {
+                backgroundColor: colors.blue,
+            },
+        };
     };
-
-    async componentDidMount() {
-        const contact = await fetchRandomContact();
-
-        this.setState({
-            contact,
-        });
-    }
     render() {
+        const { navigation: { state: { params}}} = this.props;
+        const { contact } = params;
         const {
             avatar, name, email, phone, cell,
-        } = this.state.contact;
+        } = contact;
 
         return(
             <View style = {styles.container}>

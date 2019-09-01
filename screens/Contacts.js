@@ -8,6 +8,9 @@ import { fetchContacts } from '../utils/api';
 const keyExtractor = ({ phone }) => phone;
 
 export default class Contacts extends Component {
+    static navigationOptions = {
+        title: 'Contacts',
+    }
     state  = {
         contacts: [],
         loading: true,
@@ -39,7 +42,7 @@ export default class Contacts extends Component {
         <ContactListItem name={name}
                         avatar={avatar}
                         phone={phone}
-                        onPress={() => navigate('Profile')} />
+                        onPress={() => navigate('Profile', {contact:item})} />
         );
     };
     
